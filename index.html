@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-analytics.js"></script>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -27,7 +32,7 @@
     </form>
 
     <button onclick="fb_write()">Submit</button>
-
+  <button onclick="helloWorld()">hello world</button>
     <p id="statusMessage"></p>
   </div>
 </body>

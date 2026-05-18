@@ -10,6 +10,7 @@ function fb_authenticate(){
     // authenticate with Google
 }
 
-function fb_error(){
-    // Don't forget your error handling!
+function fb_error(error){
+  console.log("there was an error reading the message");
+  console.error(error);
 }
