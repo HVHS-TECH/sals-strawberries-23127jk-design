@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
+    <!-- firebase start ****************************************-->
+  <!-- Firebase App (core Firebase SDK) is always required & must be listed 1st -->
+  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
   <!-- Add Firebase products that you want to use -->
   <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-database.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-analytics.js"></script>
+  <!-- firebase end ******************************************-->
+  <script src="fb_setup.js"></script>
+  <script src="fb_io.js"></script>
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,7 +22,7 @@
     <h1>Sal’s Strawberry Saloon</h1>
     <h2>(and other fruit products)</h2>
 
-    <button onclick="fb_authenticate()">Login with Google</button>
+    <button onclick="fb_login()">Login with Google</button>
 
     <form id="fruitForm">
       <label for="name">Your Name:</label>
@@ -32,8 +38,9 @@
     </form>
 
     <button onclick="fb_write()">Submit</button>
-  <button onclick="helloWorld()">hello world</button>
     <p id="statusMessage"></p>
+
+      <script src="script.js"></script>
   </div>
 </body>
 </html>
