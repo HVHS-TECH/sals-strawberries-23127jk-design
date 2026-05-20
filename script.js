@@ -7,11 +7,12 @@ function fb_error(error){
   console.error(error);
 }
 
-function writeForm(){
+function fb_write(){
     // Get the form data
-    console.log("reading info")
-    firebase.database().ref('/').child('message').once('value')
-    var favFruit = document.getElementById("favoriteFruit").value;
+    console.log("reading write Form")
+
+    var favFruit = document.getElementById("favoriteFruit").value
+   firebase.database().ref('/').child('favouriteFruit').once('value')
 }
 
 
@@ -29,8 +30,12 @@ foodTable ={
 
 
 firebase.database().ref('/').set(foodTable)
-//firebase.database().ref('/foodTable/users/alex').set("berrys")
-//firebase.database().ref('/foodTable/users/tom').set("cheese")
-
+firebase.database().ref('/users/alex/').set("jam");
+firebase.database().ref('/users/tom/').set("cheese");
+let user;
+let score = "berrys";
+firebase.database().ref('/users/ben/').set(
+ score
+);
 //console.log(users+ "likes"+ favFruit)
 
