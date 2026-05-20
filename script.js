@@ -9,18 +9,25 @@ function fb_error(error){
 
 function fb_write(){
     // Get the form data
-    console.log("reading write Form")
-
-    var favFruit = document.getElementById("favoriteFruit").value
-   firebase.database().ref('/').child('favouriteFruit').once('value')
+//if (GLOBAL_user == null)
+//alert()
+console.log("reading write Form")
+    const favoriteFruit = document.getElementById("favoriteFruit").value
+    let fruit = favoriteFruit.value
+    const favQuantity = document.getElementById("favoriteQuantity").value
+    let favoriteQuantity = favQuantity.value
+    firebase.database().ref('/').set(
+  
+    )
+  
 }
 
 
-  firebase.database().ref('/').set(
-    {
-      message: 'hello world'
-    }
-  )
+ // firebase.database().ref('/').set(
+   // {
+   //   message: 'hello world'
+   // }
+ // )
 foodTable ={
   users:{
     nick: "noodles",
