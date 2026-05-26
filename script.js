@@ -15,27 +15,43 @@ function fb_write() {
   else {
     const favoriteFruit = document.getElementById("favoriteFruit").value;
     const username = document.getElementById("name").value;
-    //const username2 = document.getElementById("name");
-   // let user_2 = name.value;
-    console.log("nick has apples")
+    const fruitQuantity = document.getElementById("fruitQuantity").value;
+
     const statusMessage = document.getElementById("statusMessage");
-    firebase.database().ref('/users/'+GLOBAL_user["uid"]).set(
-    {
-    user: username,
-    fruit : favoriteFruit
-    })
+    firebase.database().ref('/users/' + GLOBAL_user["uid"]).set(
+      {
+        user: String(username),
+        fruit: String(favoriteFruit),
+        amount: Number(fruitQuantity)
+      });
   }
 }
-/*function showEmail(){
-    console.log("Reading email");
-  firebase.database().ref('/Food').once('value', fb_displayEmail, fb_readError)
- }
-  function fb_displayEmail(snapshot){
-    console.log(snapshot.val())
-//let Email = snapshot.val()
-console.log("Your favortie fruit is " + Email)
-  }*/
- 
+
+function showEmail() {
+  console.log("Reading email");
+  firebase.database().ref('/users/' + GLOBAL_user["uid"]).once('value', fb_displayEmail, fb_error)
+}
+function fb_displayEmail(snapshot) {
+  let dbdata = snapshot.val()
+  /*console.log("welcome " + dbdata["user"]
+    + "your fav, " + dbdata["fruit"] +
+    "are on sale," + dbdata["amount"]
+    + dbdata["fruit"] + "are only $" + (number(dbdata["amount"]) * 0.5))*/
+
+  HTML_OUTPUT.innerHTML = "welcome " + dbdata["user"] + "<br>"
+    + "Your fav, " + dbdata["fruit"] + " are on sale, " + dbdata["amount"]
+    + " " + dbdata["fruit"] + " are only $"
+    + (Number(dbdata["amount"]) * 0.9);
+}
+
+/*function showcomments(){
+  console.log("reading comments");
+   firebase.database().ref('/users/' + GLOBAL_user["uid"]).once('value', fb_displaycomments, fb_error)
+}
+
+function fb_displaycomments(snapshot){
+let dbdata
+}*/
 // firebase.database().ref('/').set(
 // {
 //   message: 'hello world'
