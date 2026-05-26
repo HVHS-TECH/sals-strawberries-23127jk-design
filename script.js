@@ -13,44 +13,33 @@ function fb_write() {
   if (GLOBAL_user == null)
     alert("please login")
   else {
-    const favoriteFruit = document.getElementById("favoriteFruit")
-     let Fruit = favoriteFruit.value;
-    const username = document.getElementById("name");
-      let user = username.value;
+    const favoriteFruit = document.getElementById("favoriteFruit").value;
+    const username = document.getElementById("name").value;
     //const username2 = document.getElementById("name");
    // let user_2 = name.value;
     console.log("nick has apples")
     const statusMessage = document.getElementById("statusMessage");
-    firebase.database().ref('/users').set(GLOBAL_user + Fruit)
+    firebase.database().ref('/users/'+GLOBAL_user["uid"]).set(
     {
-      Fruit
-    }
+    user: username,
+    fruit : favoriteFruit
+    })
   }
-
 }
-
-
+/*function showEmail(){
+    console.log("Reading email");
+  firebase.database().ref('/Food').once('value', fb_displayEmail, fb_readError)
+ }
+  function fb_displayEmail(snapshot){
+    console.log(snapshot.val())
+//let Email = snapshot.val()
+console.log("Your favortie fruit is " + Email)
+  }*/
+ 
 // firebase.database().ref('/').set(
 // {
 //   message: 'hello world'
 // }
 // )
-foodTable = {
-  users: {
-    nick: "noodles",
-    tom: "bread"
-  }
-}
-
-
-firebase.database().ref('/').set(foodTable)
-firebase.database().ref('/users/alex/').set("jam");
-firebase.database().ref('/users/tom/').set("cheese");
-let user;
-let score = "berrys";
-firebase.database().ref('/users/ben/').set(
-  score
-);
-
 //console.log(users+ "likes"+ favFruit)
 

@@ -15,6 +15,7 @@ function fb_login() {
     console.log("logged in")
     console.log(user)
     var uid = user.uid;
+    GLOBAL_user = user;
   } else {
     console.log("not logged in")
     // user is signed out
