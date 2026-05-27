@@ -28,20 +28,24 @@ function fb_write() {
 }
 
 function showEmail() {
+   if (GLOBAL_user == null)
+    alert("please login")
+  else {
   console.log("Reading email");
   firebase.database().ref('/users/' + GLOBAL_user["uid"]).once('value', fb_displayEmail, fb_error)
 }
+}
 function fb_displayEmail(snapshot) {
   let dbdata = snapshot.val()
-  /*console.log("welcome " + dbdata["user"]
-    + "your fav, " + dbdata["fruit"] +
-    "are on sale," + dbdata["amount"]
-    + dbdata["fruit"] + "are only $" + (number(dbdata["amount"]) * 0.5))*/
+  console.log("welcome " + dbdata["user"]
+    + " your fav, " + dbdata["fruit"] +
+    " are on sale, " + dbdata["amount"]
+    + dbdata["fruit"] + " are only $ " + (Number(dbdata["amount"]) * 0.5))
 
   HTML_OUTPUT.innerHTML = "welcome " + dbdata["user"] + "<br>"
     + "Your fav, " + dbdata["fruit"] + " are on sale, " + dbdata["amount"]
     + " " + dbdata["fruit"] + " are only $"
-    + (Number(dbdata["amount"]) * 0.9);
+    + (Number(dbdata["amount"]) * 0.5);
 }
 
 /*function showcomments(){
